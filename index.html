@@ -89,20 +89,20 @@
                   </div>
                 </div>
 
-                <div class="container card mb-5">
-                    <h1 class="text-center mb-4 mt-4">To Do List</h1>
+                <div class="container card mb-5" id="containerList">
+                    <h1 class="text-center mb-4 mt-4">Create To Do List</h1>
                     <form>
                         <div class="row mb-3">
                           <label for="desc" class="col-sm-2 col-form-label">Desc</label>
                           <div class="col-sm-8">
-                            <input type="text" required class="form-control" id="inputEmail3">
+                            <input type="text" required class="form-control" id="desc">
                           </div>
                         </div>
 
                         <div class="row mb-3">
                           <label for="date" class="col-sm-2 col-form-label">Date</label>
                           <div class="col-sm-8">
-                            <input type="date" required class="form-control" id="inputPassword3">
+                            <input type="date" required class="form-control" id="date">
                           </div>
                         </div>
 
@@ -125,39 +125,36 @@
                 </div>
             
                       <div class="container">
+                        <h3>To Do List</h3>
                         <table class="table">
                             <thead>
                               <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
+                                <th scope="col">No</th>
+                                <th scope="col">Desc</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Priority</th>
                                 <th scope="col">Done</th>
                                 <th scope="col">Handle</th>
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td><input type="checkbox">Done</td>
-                                <td><button class="btn btn-danger ">Delete</button></td>    
-                              </tr>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td><input type="checkbox">Done</td>
-                                <td><button class="btn btn-danger ">Delete</button></td>    
-                              </tr>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td><input type="checkbox">Done</td>
-                                <td><button class="btn btn-danger ">Delete</button></td>    
-                              </tr>
                             </tbody>
+                          </table>
+                      </div>
+
+                      <div class="container mt-5">
+                          <h3>Completed To Do List</h3>
+                          <table class="table" id="doneTable">
+                            <thead>
+                              <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Priority</th>
+                                <th scope="col">Handle</th>
+                              </tr>
+                            </thead>
+                            <tbody></tbody>
                           </table>
                       </div>
                 </div>
