@@ -1,166 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MISSION 4</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Todo List</title>
+  <style>
+    .line-through {
+      text-decoration: line-through;
+    }
+  </style>
 </head>
-<body>
-    <div class="container">
-        <div class="main-body">
-              <div class="row gutters-sm">
-                <div class="col-md-4 mb-3">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="d-flex flex-column align-items-center text-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
-                        <div class="mt-3">
-                          <h4>Firsawanto Saputra</h4>
-                          <p class="text-secondary mb-1">Full Stack Developer</p>
-                          <p class="text-muted font-size-sm">Bekasi, Indonesia</p>
-                          <button class="btn btn-primary">Follow</button>
-                          <button class="btn btn-outline-primary">Message</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+<body class="bg-gray-200">
+  <div class="min-h-screen p-4">
+    <!-- Profile -->
+    <div class="flex items-center justify-between bg-white rounded-lg p-4 shadow mb-6">
+      <div class="flex items-center space-x-4">
+        <img src="https://github.com/gaearon.png" alt="Profile avatar" class="h-12 w-12 rounded-full object-cover" />
+        <div>
+          <div class="text-black font-medium">Firsawanto Saputra</div>
+          <div class="text-xs text-zinc-500">Fullstack</div>
+        </div>
+      </div>
+      <div id="clock" class="text-right text-gray-600">Loading...</div>
+    </div>
 
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div class="p-6 rounded-2xl bg-white shadow">
+        <div class="space-y-2">
+          <div class="text-sm font-medium text-gray-500">Priority</div>
+          <div id="countHigh" class="text-3xl text-gray-900">0</div>
+          <div class="text-sm font-medium text-red-600">High</div>
+        </div>
+      </div>
+      <div class="p-6 rounded-2xl bg-white shadow">
+        <div class="space-y-2">
+          <div class="text-sm font-medium text-gray-500">Priority</div>
+          <div id="countMedium" class="text-3xl text-gray-900">0</div>
+          <div class="text-sm font-medium text-yellow-600">Medium</div>
+        </div>
+      </div>
+      <div class="p-6 rounded-2xl bg-white shadow">
+        <div class="space-y-2">
+          <div class="text-sm font-medium text-gray-500">Priority</div>
+          <div id="countLow" class="text-3xl text-gray-900">0</div>
+          <div class="text-sm font-medium text-green-600">Low</div>
+        </div>
+      </div>
+    </div>
 
-                <div class="col-md-8">
-                  <div class="card mb-3">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <h6 class="mb-0">Full Name</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                          Firsawanto Saputra
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <h6 class="mb-0">Nik Employe</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                          202311501
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <h6 class="mb-0">Email</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                          firsaavln@gmail.com
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <h6 class="mb-0">Linkedin</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                          @FirsawantoSaputra
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <h6 class="mb-0">Mobile</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                          (+62) 813-6969-6699
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <h6 class="mb-0">Address</h6>
-                        </div>
-                        <div class="col-sm-9 text-secondary">
-                          Bekasi, Indonesia
-                        </div>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="container card mb-5" id="containerList">
-                    <h1 class="text-center mb-4 mt-4">Create To Do List</h1>
-                    <form>
-                        <div class="row mb-3">
-                          <label for="desc" class="col-sm-2 col-form-label">Desc</label>
-                          <div class="col-sm-8">
-                            <input type="text" required class="form-control" id="desc">
-                          </div>
-                        </div>
-
-                        <div class="row mb-3">
-                          <label for="date" class="col-sm-2 col-form-label">Date</label>
-                          <div class="col-sm-8">
-                            <input type="date" required class="form-control" id="date">
-                          </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="priority" class="col-sm-2 col-form-label">Priority</label>
-                            <div class="col-sm-8">
-                                <select class="form-control" required id="floatingSelect" aria-label="Floating label select example">
-                                <option selected value="Low">Low</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Urgent">Urgent</option>
-                                </select>
-                             </div>
-                        </div>
-                       
-
-                        <div class="row mb-4 mt-5 col-sm-4 d-flex mx-auto">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            
-                      <div class="container">
-                        <h3>To Do List</h3>
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Desc</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Priority</th>
-                                <th scope="col">Done</th>
-                                <th scope="col">Handle</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                          </table>
-                      </div>
-
-                      <div class="container mt-5">
-                          <h3>Completed To Do List</h3>
-                          <table class="table" id="doneTable">
-                            <thead>
-                              <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Priority</th>
-                                <th scope="col">Handle</th>
-                              </tr>
-                            </thead>
-                            <tbody></tbody>
-                          </table>
-                      </div>
-                </div>
-              </div>
-            </div>
+    <!-- Add Todo and Delete All Buttons -->
+    <div class="flex justify-between mb-4">
+      <button id="deleteAllBtn" onclick="deleteAllTasks()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 hidden">Delete All</button>
+      <button onclick="openModal()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Todo</button>
+    </div>
     
+
+    <!-- Active Tasks Table -->
+    <div id="activeSection" class="hidden">
+      <h1 class="text-xl font-bold mb-2">Active Tasks</h1>
+      <div class="bg-white rounded-lg shadow overflow-x-auto mb-6">
+        <table class="min-w-full text-sm text-center table-fixed">
+          <thead class="bg-gray-100 text-gray-700 uppercase text-xs">
+            <tr>
+              <th class="w-20 px-2 py-1">Checkbox</th>
+              <th class="w-1/4 px-2 py-1">Task</th>
+              <th class="w-1/4 px-2 py-1">Date</th>
+              <th class="w-1/4 px-2 py-1">Priority</th>
+              <th class="w-20 px-2 py-1">Action</th>
+            </tr>
+          </thead>
+          <tbody id="todoTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Done Tasks Table -->
+    <div id="doneSection" class="hidden">
+      <h1 class="text-xl font-bold mb-2">Completed Tasks</h1>
+      <div class="bg-white rounded-lg shadow overflow-x-auto">
+        <table class="min-w-full text-sm text-center table-fixed">
+          <thead class="bg-gray-100 text-gray-700 uppercase text-xs">
+            <tr>
+              <th class="w-1/4 px-2 py-1">Task</th>
+              <th class="w-1/4 px-2 py-1">Date</th>
+              <th class="w-1/4 px-2 py-1">Priority</th>
+            </tr>
+          </thead>
+          <tbody id="doneTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div role="form-modal" id="formModal" class="hidden fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+    <div class="bg-white rounded-md p-6 w-full max-w-md">
+      <div class="flex items-center justify-between mb-4">
+        <span class="text-lg font-medium">Add Task</span>
+        <button onclick="closeModal()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="space-y-4">
+        <input id="taskInput" type="text" placeholder="Task" class="w-full border px-4 py-2 rounded" />
+        <input id="dateInput" type="date" class="w-full border px-4 py-2 rounded" />
+        <select id="priorityInput" class="w-full border px-4 py-2 rounded">
+          <option value="Low">Low</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="High">High</option>
+        </select>
+        <button onclick="submitTask()" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Submit</button>
+      </div>
+    </div>
+  </div>
 </body>
-<script src="/scripts/script.js"></script>
+
+<script src="script.js"></script>
 </html>
